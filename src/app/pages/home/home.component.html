@@ -1,0 +1,177 @@
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow hero-eyebrow">Agency quảng cáo ngoài trời</div>
+      <h1>Thương hiệu của bạn <em>đồng hành</em><br>cùng chúng tôi khắp mọi miền</h1>
+      <p>Từ billboard cao tốc đến thân xe buýt giữa lòng thành phố — chúng tôi lên kế hoạch, thi công và vận hành toàn bộ mạng lưới quảng cáo ngoài trời cho thương hiệu của bạn.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Bắt đầu chiến dịch</a>
+        <a href="#services" class="btn btn-outline on-dark">Xem dịch vụ</a>
+      </div>
+    </div>
+
+    <div class="billboard">
+      <div class="billboard-frame">
+        <div class="billboard-screen">
+          <div class="billboard-tag"><span class="dot"></span>ĐANG PHÁT SÓNG</div>
+          <div class="billboard-rotator" #billboardRotator>
+            <div class="slide" *ngFor="let slide of billboardSlides; let i = index" [class.active]="i === activeSlideIndex">
+              {{ slide }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="billboard-poles"><div></div><div></div></div>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span *ngFor="let item of tickerItems"><b>{{ item.number }}</b> {{ item.label }}</span>
+      <span *ngFor="let item of tickerItems"><b>{{ item.number }}</b> {{ item.label }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="about-copy">
+        <div class="about-photo">
+          <img [src]="aboutPhoto" alt="Billboard NF OOH ban đêm">
+        </div>
+        <div>
+          <div class="eyebrow">Về chúng tôi</div>
+          <h2>20 năm đứng<br>giữa phố</h2>
+        </div>
+      </div>
+      <p>NF OOH được thành lập từ một xưởng in bạt nhỏ, giờ đây là mạng lưới vận hành quảng cáo ngoài trời phủ khắp các tuyến đường, bến xe và trung tâm thương mại lớn.</p>
+      <p>Chúng tôi kiểm soát toàn bộ chuỗi giá trị — từ chọn vị trí, thiết kế, thi công đến đo lường hiệu quả — để mỗi chiến dịch đều có thể theo dõi bằng số liệu thực tế, không chỉ cảm tính.</p>
+
+      <div class="coverage">
+        <div class="coverage-label">Địa bàn hoạt động</div>
+        <div class="coverage-chips">
+          <span class="chip chip-main">Hà Nội &amp; Miền Bắc</span>
+          <span class="chip chip-main">Đà Nẵng &amp; Miền Trung</span>
+          <span class="chip">TP.HCM &amp; Miền Nam <small>(theo dự án)</small></span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="/gioi-thieu" class="btn btn-primary">Xem đầy đủ về NF OOH</a>
+        <a href="#contact" class="btn btn-outline">Tìm hiểu quy trình</a>
+      </div>
+    </div>
+
+    <div class="route">
+      <div class="route-stop" *ngFor="let stop of routeStops">
+        <div class="stop-code">{{ stop.code }}</div>
+        <div class="stop-name">{{ stop.title }}<small>{{ stop.desc }}</small></div>
+        <div class="stop-num">{{ stop.value }}<span>+</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head" style="margin-top:90px;">
+      <div>
+        <div class="eyebrow">Dịch vụ</div>
+        <h2>Ba mảnh ghép<br>một chiến dịch</h2>
+      </div>
+      <ul class="service-highlights">
+        <li *ngFor="let hl of serviceHighlights; let i = index">
+          <span>{{ (i + 1).toString().padStart(2, '0') }}</span>{{ hl }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-grid">
+      <div
+        class="service-card"
+        *ngFor="let card of serviceCards"
+  
+      >
+        <div class="frame"       (click)="goToDetail(card.slug)">
+          <span class="tab">{{ card.tab }}</span>
+          <img [src]="card.image" [alt]="card.alt" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-grid-section" id="danh-muc-dich-vu">
+  <div class="wrap">
+    <div class="svc-heading">
+      <div class="eyebrow" style="justify-content:center;">Dịch vụ</div>
+      <h2>Danh Mục Dịch Vụ</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-item" *ngFor="let svc of serviceCategories">
+        <div class="svc-label">{{ svc.label }}</div>
+        <div class="svc-media">
+          <img [ngClass]="{'svc-slot-img': !svc.hasImage}"
+               [src]="svc.image"
+               [alt]="svc.label"
+               loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Được tin dùng bởi</div>
+    <h2>Thương hiệu đồng hành</h2>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="client-logo" *ngFor="let client of clientLogos">{{ client }}</span>
+      <span class="client-logo" *ngFor="let client of clientLogos">{{ client }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="news" id="news">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Tin tức &amp; sự kiện</div>
+        <h2>Chuyện trên phố</h2>
+      </div>
+      <p>Ghi chép về các chiến dịch, xu hướng OOH và những gì đang diễn ra trên các tuyến phố mà NF OOH quản lý.</p>
+    </div>
+
+    <div class="news-rail-wrap">
+      <div class="news-rail" #newsRail>
+        <article class="news-card" *ngFor="let post of newsPosts">
+          <div class="news-thumb"><span class="news-date">{{ post.date }}</span></div>
+          <div class="news-body">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt }}</p>
+            <a href="#" class="news-link">Đọc thêm →</a>
+          </div>
+        </article>
+      </div>
+      <div class="news-nav">
+        <button (click)="scrollNews(-1)" aria-label="Trước">←</button>
+        <button (click)="scrollNews(1)" aria-label="Sau">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="contact">
+  <div class="wrap">
+    <h3>Nhận thông tin chiến dịch mới</h3>
+    <form (ngSubmit)="onNewsletterSubmit(newsletterForm)" #newsletterForm="ngForm">
+      <input type="email" name="email" ngModel placeholder="Nhập email của bạn" required>
+      <button type="submit">Đăng ký</button>
+    </form>
+  </div>
+</section>

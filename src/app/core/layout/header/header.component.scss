@@ -1,0 +1,265 @@
+:host {
+  --asphalt: #121316;
+  --paper: #ffffff;
+  --red: #ff3b30;
+  --line: rgba(255, 255, 255, 0.14);
+  --radius: 2px;
+  --mono: 'JetBrains Mono', monospace;
+
+  display: block;
+}
+
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+
+  padding: 16px 0;
+
+  /* Ở đầu trang: trong suốt để gradient hero chạy xuyên qua */
+  background: transparent;
+
+  /* Không blur khi chưa scroll */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    padding 0.3s ease,
+    border-color 0.3s ease;
+
+  &.solid {
+    /* Chỉ hiện nền khi cuộn xuống */
+    background: rgba(18, 19, 22, 0.88);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    padding: 12px 12px;
+
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    height: 64px;
+    width: auto;
+    display: block;
+
+    filter:
+      brightness(1.12)
+      contrast(1.1)
+      saturate(1.15)
+      drop-shadow(0 0 1.5px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.85))
+      drop-shadow(0 0 16px rgba(255, 255, 255, 0.5))
+      drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+  }
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav ul {
+  display: flex;
+  gap: 36px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+nav a {
+  position: relative;
+
+  padding-bottom: 4px;
+
+  font-family: var(--mono);
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: var(--paper);
+  opacity: 0.8;
+
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--red);
+
+    transition: width 0.25s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+/* =========================
+   CTA
+========================= */
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 15px 28px;
+
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  border-radius: var(--radius);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.btn-outline {
+  &.on-dark {
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    color: var(--paper);
+
+    &:hover {
+      background: var(--paper);
+      color: var(--asphalt);
+    }
+  }
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.burger {
+  display: none;
+
+  flex-direction: column;
+  gap: 5px;
+
+  width: 26px;
+
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--paper);
+  }
+}
+
+@media (max-width: 996px) {
+  header {
+    padding: 12px 12px;
+  }
+
+  header .wrap {
+    padding: 0 18px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  nav {
+    display: none;
+
+    &.open {
+      display: block;
+
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+
+      padding: 20px 24px;
+
+      background: rgba(18, 19, 22, 0.97);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
+      ul {
+        flex-direction: column;
+        gap: 18px;
+      }
+    }
+  }
+
+  .nav-cta .btn-outline {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}

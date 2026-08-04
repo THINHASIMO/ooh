@@ -1,0 +1,98 @@
+<div class="svc-page">
+
+  <!-- ── DARK HERO — giống about ── -->
+  <section class="svc-pg-hero">
+    <div class="svc-wrap">
+      <div class="eyebrow">Dịch vụ</div>
+      <h1>Ba mảnh ghép<br>một chiến dịch</h1>
+      <p>Từ billboard cao tốc đến sân khấu sự kiện và gian hàng triển lãm — chúng tôi vận hành toàn bộ hành trình thương hiệu ngoài màn hình.</p>
+    </div>
+  </section>
+
+  <!-- ── HIGHLIGHTS + CARDS ── -->
+  <section class="svc-cards-section">
+    <div class="svc-wrap">
+      <div class="svc-sub-head">
+        <ul class="svc-highlights">
+          <li *ngFor="let hl of serviceHighlights; let i = index">
+            <span class="hl-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span>{{ hl }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="svc-cards">
+        <div
+          class="svc-card"
+          *ngFor="let card of serviceCards"
+          (click)="goToDetail(card.slug)"
+        >
+          <img [src]="card.image" [alt]="card.alt" class="svc-card__img" loading="lazy">
+          <span class="svc-card__badge">{{ card.tab }}</span>
+          <div class="svc-card__overlay">
+            <h3 class="svc-card__title">{{ card.tab }}</h3>
+            <p class="svc-card__desc">{{ card.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SỐ LIỆU NỔI BẬT ── -->
+  <section class="svc-stats">
+    <div class="svc-wrap">
+      <div class="svc-stats__grid">
+        <div class="svc-stat" *ngFor="let stat of stats">
+          <div class="svc-stat__num">{{ stat.num }}<span>+</span></div>
+          <div class="svc-stat__label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUY TRÌNH ── -->
+  <section class="svc-process">
+    <div class="svc-wrap">
+      <div class="svc-section-head">
+        <div class="eyebrow">Quy trình</div>
+        <h2>Từ ý tưởng đến<br>mặt đường</h2>
+      </div>
+      <div class="svc-process__grid">
+        <div class="svc-step" *ngFor="let step of processSteps; let i = index">
+          <div class="svc-step__num">{{ (i + 1).toString().padStart(2, '0') }}</div>
+          <h3 class="svc-step__title">{{ step.title }}</h3>
+          <p class="svc-step__desc">{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KHÁCH HÀNG ── -->
+  <section class="svc-clients">
+    <div class="svc-wrap">
+      <div class="svc-section-head svc-section-head--center">
+        <div class="eyebrow">Khách hàng</div>
+        <h2>Thương hiệu đồng hành</h2>
+      </div>
+      <div class="svc-clients__grid">
+        <div class="svc-client-logo" *ngFor="let client of clients">
+          {{ client }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="svc-cta">
+    <div class="svc-wrap">
+      <div class="svc-cta__box">
+        <h2>Sẵn sàng triển khai<br>chiến dịch của bạn?</h2>
+        <p>Đội ngũ NF OOH sẽ tư vấn miễn phí và lên kế hoạch phù hợp với ngân sách của bạn.</p>
+        <div class="svc-cta__actions">
+          <a href="#contact" class="btn btn-primary">Bắt đầu ngay</a>
+          <a href="tel:+84901234567" class="btn btn-outline">Gọi ngay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

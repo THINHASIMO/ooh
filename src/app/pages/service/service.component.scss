@@ -1,0 +1,367 @@
+app-service {
+
+  $red: #E53935;
+  $asphalt: #12131a;
+  $paper: #fff;
+  $concrete: #555;
+  $line: #e8e8e8;
+
+  .svc-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    @media (max-width: 768px) { padding: 0 20px; }
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $red;
+    margin-bottom: 12px;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: $red;
+      flex-shrink: 0;
+    }
+  }
+
+  .svc-section-head {
+    margin-bottom: 56px;
+    h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: $asphalt;
+      margin: 0;
+    }
+    &--center {
+      text-align: center;
+      .eyebrow { justify-content: center; }
+    }
+  }
+
+  // ── DARK HERO — clone pg-hero của about ────────────
+  .svc-pg-hero {
+    position: relative;
+    padding: 180px 0 90px;
+    background: $asphalt;
+    color: #fff;
+    // background-image:
+    //   linear-gradient(180deg, rgba(18,19,22,0.55), rgba(18,19,22,0.88)),
+    //   url('/assets/images/services/hero-bg.jpg');
+        background-image:
+      linear-gradient(180deg, rgba(18, 19, 22, 0.55), rgba(18, 19, 22, 0.88)),
+      url('/assets/images/gioi-thieu.jpg');
+    background-size: cover;
+    background-position: center;
+
+    .eyebrow { color: $red; }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 16px 0 18px;
+      color: #fff;
+    }
+
+    p {
+      max-width: 560px;
+      color: #c6c7cc;
+      font-size: 17px;
+      line-height: 1.65;
+      margin: 0;
+    }
+  }
+
+  // ── HIGHLIGHTS + CARDS ─────────────────────────────
+  .svc-cards-section {
+    padding: 80px 0;
+    background: $paper;
+  }
+
+  .svc-sub-head {
+    margin-bottom: 48px;
+  }
+
+  .svc-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: $concrete;
+    }
+
+    .hl-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: $red;
+      min-width: 24px;
+    }
+  }
+
+  .svc-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    @media (max-width: 900px) { grid-template-columns: 1fr; }
+  }
+
+  .svc-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 420px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+      .svc-card__img { transform: scale(1.05); }
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    &__badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: $red;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 22px;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%);
+      color: #fff;
+    }
+
+    &__title {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+
+    &__desc {
+      font-size: 13px;
+      line-height: 1.5;
+      opacity: 0.88;
+      margin: 0;
+    }
+  }
+
+  // ── STATS ──────────────────────────────────────────
+  .svc-stats {
+    background: $asphalt;
+    padding: 72px 0;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+    }
+  }
+
+  .svc-stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    &:last-child { border-right: none; }
+
+    &__num {
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 10px;
+      span { color: $red; }
+    }
+
+    &__label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+  }
+
+  // ── PROCESS ────────────────────────────────────────
+  .svc-process {
+    padding: 100px 0;
+    background: $paper;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      @media (max-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
+      @media (max-width: 600px)  { grid-template-columns: 1fr; }
+    }
+  }
+
+  .svc-step {
+    padding: 28px 22px;
+    border: 1px solid $line;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      border-color: $red;
+      box-shadow: 0 4px 20px rgba(229,57,53,0.08);
+    }
+
+    &__num {
+      font-size: 32px;
+      font-weight: 900;
+      color: $red;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    &__title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $asphalt;
+      margin: 0 0 10px;
+    }
+
+    &__desc {
+      font-size: 13px;
+      color: $concrete;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  // ── CLIENTS ────────────────────────────────────────
+  .svc-clients {
+    padding: 100px 0;
+    background: #f7f7f7;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      @media (max-width: 900px) { grid-template-columns: repeat(3, 1fr); }
+      @media (max-width: 480px) { grid-template-columns: repeat(2, 1fr); }
+    }
+  }
+
+  .svc-client-logo {
+    height: 72px;
+    background: #fff;
+    border: 1px solid $line;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+
+    &:hover {
+      border-color: $red;
+      color: $asphalt;
+    }
+  }
+
+  // ── CTA ────────────────────────────────────────────
+  .svc-cta {
+    padding: 100px 0;
+    background: $asphalt;
+
+    &__box {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: clamp(28px, 4vw, 48px);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 1.1;
+        margin: 0 0 20px;
+      }
+
+      p {
+        font-size: 16px;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.65;
+        margin: 0 0 36px;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.15s;
+    &:hover { opacity: 0.88; transform: translateY(-1px); }
+  }
+
+  .btn-primary { background: $red; color: #fff; border: none; }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    &:hover { border-color: #fff; }
+  }
+}

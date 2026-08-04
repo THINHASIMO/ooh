@@ -1,0 +1,95 @@
+<div class="sd-page" *ngIf="data; else notFound">
+
+  <!-- ── HERO ── -->
+  <div class="sd-hero" [style.--hero-bg]="'url(' + data.image + ')'">
+    <div class="sd-wrap">
+      <div class="eyebrow">{{ data.label }}</div>
+      <h1>{{ data.title }}</h1>
+      <p class="sd-hero__tagline">{{ data.tagline }}</p>
+    </div>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="sd-intro">
+    <div class="sd-wrap sd-intro__grid">
+      <div class="sd-intro__left">
+        <h2>Tổng quan dịch vụ</h2>
+        <p>{{ data.desc }}</p>
+        <button class="sd-btn sd-btn--primary" (click)="goBack()">← Quay lại dịch vụ</button>
+      </div>
+      <div class="sd-intro__right">
+        <ul class="sd-checklist">
+          <li *ngFor="let item of data.details">
+            <span class="sd-check">✓</span>{{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="sd-stats">
+    <div class="sd-wrap">
+      <div class="sd-stats__grid">
+        <div class="sd-stat" *ngFor="let stat of data.stats">
+          <div class="sd-stat__num">{{ stat.num }}</div>
+          <div class="sd-stat__label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRENDS 2026 ── -->
+  <section class="sd-trends">
+    <div class="sd-wrap">
+      <div class="sd-section-head">
+        <div class="eyebrow">Xu hướng 2026</div>
+        <h2>Ngành {{ data.title }} đang đi về đâu?</h2>
+      </div>
+      <div class="sd-trends__grid">
+        <div class="sd-trend-card" *ngFor="let trend of data.trends; let i = index">
+          <div class="sd-trend-card__num">0{{ i + 1 }}</div>
+          <div class="sd-trend-card__year">{{ trend.year }}</div>
+          <h3 class="sd-trend-card__title">{{ trend.title }}</h3>
+          <p class="sd-trend-card__desc">{{ trend.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US ── -->
+  <section class="sd-why">
+    <div class="sd-wrap sd-why__grid">
+      <div class="sd-why__left">
+        <div class="eyebrow">Tại sao chọn NF OOH</div>
+        <h2>Cam kết của<br>chúng tôi</h2>
+        <p>Không phải lời hứa — là kết quả đo lường được sau mỗi chiến dịch.</p>
+      </div>
+      <ul class="sd-why__list">
+        <li *ngFor="let w of data.whyUs; let i = index">
+          <span class="sd-why__num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <span>{{ w }}</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="sd-cta">
+    <div class="sd-wrap">
+      <div class="sd-cta__box">
+        <h2>Sẵn sàng bắt đầu?</h2>
+        <p>Đội ngũ NF OOH sẽ tư vấn miễn phí trong vòng 24 giờ làm việc.</p>
+        <a href="#contact" class="sd-btn sd-btn--primary sd-btn--large">{{ data.cta }}</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<ng-template #notFound>
+  <div class="sd-notfound">
+    <p>Không tìm thấy dịch vụ.</p>
+    <button (click)="goBack()">← Quay lại</button>
+  </div>
+</ng-template>

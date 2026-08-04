@@ -1,0 +1,103 @@
+:root {
+  --asphalt: #121316;
+  --steel: #24262b;
+  --paper: #ffffff;
+  --paper-dim: #f1f4f9;
+  --concrete: #6b6f78;
+
+  --red: #ff3b30;
+  --amber: #ffc700;
+  --cyan: #00c2d1;
+
+  --line: rgba(255, 255, 255, 0.14);
+  --line-dark: rgba(0, 0, 0, 0.08);
+
+  --radius: 2px;
+
+  --display: 'Oswald', sans-serif;
+  --body: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML */
+html {
+  scroll-behavior: smooth;
+
+  /* Luôn chừa vùng cho thanh cuộn */
+  overflow-y: scroll;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: '#ffffff';
+}
+
+/* Body */
+body {
+  min-height: 100vh;
+
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--asphalt);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+/* =====================================
+   NF OOH — CUSTOM SCROLLBAR
+===================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Phần nền của scrollbar */
+::-webkit-scrollbar-track {
+  background: var(--asphalt);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Thanh kéo */
+::-webkit-scrollbar-thumb {
+  min-height: 60px;
+
+  background: linear-gradient(
+    180deg,
+    #ff5148 0%,
+    var(--red) 50%,
+    #c92b24 100%
+  );
+
+  border: 2px solid var(--asphalt);
+  border-radius: 999px;
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #ff665e 0%,
+    #ff3b30 50%,
+    #e02e26 100%
+  );
+}
+
+/* Khi đang kéo */
+::-webkit-scrollbar-thumb:active {
+  background: #ff2d22;
+}
+
+/* Góc scrollbar */
+::-webkit-scrollbar-corner {
+  background: var(--asphalt);
+}

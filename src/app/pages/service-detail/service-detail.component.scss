@@ -1,0 +1,382 @@
+app-service-detail {
+
+  $red: #E53935;
+  $asphalt: #12131a;
+  $paper: #fff;
+  $concrete: #555;
+  $line: #e8e8e8;
+  $bg-alt: #f7f7f7;
+
+  .sd-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    @media (max-width: 768px) { padding: 0 20px; }
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $red;
+    margin-bottom: 12px;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: $red;
+      flex-shrink: 0;
+    }
+  }
+
+  .sd-section-head {
+    margin-bottom: 56px;
+    h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: $asphalt;
+      margin: 0;
+    }
+  }
+
+  // ── HERO ───────────────────────────────────────────
+  .sd-hero {
+    position: relative;
+    padding: 180px 0 90px;
+    background-color: $asphalt;
+    background-image:
+      linear-gradient(180deg, rgba(18,19,22,0.6), rgba(18,19,22,0.92)),
+      var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+
+    .eyebrow { color: $red; }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin: 16px 0 20px;
+      letter-spacing: -2px;
+    }
+
+    &__tagline {
+      font-size: 18px;
+      color: #c6c7cc;
+      max-width: 560px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  // ── INTRO ──────────────────────────────────────────
+  .sd-intro {
+    padding: 100px 0;
+    background: $paper;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    &__left {
+      h2 {
+        font-size: clamp(24px, 3vw, 36px);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $asphalt;
+        margin: 0 0 20px;
+      }
+      p {
+        font-size: 16px;
+        color: $concrete;
+        line-height: 1.75;
+        margin: 0 0 32px;
+      }
+    }
+  }
+
+  .sd-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.5;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $line;
+      &:last-child { border-bottom: none; }
+    }
+  }
+
+  .sd-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    background: $red;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  // ── STATS ──────────────────────────────────────────
+  .sd-stats {
+    background: $asphalt;
+    padding: 80px 0;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+    }
+  }
+
+  .sd-stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    &:last-child { border-right: none; }
+
+    &__num {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    &__label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+  }
+
+  // ── TRENDS ─────────────────────────────────────────
+  .sd-trends {
+    padding: 100px 0;
+    background: $bg-alt;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      @media (max-width: 900px) { grid-template-columns: 1fr; }
+    }
+  }
+
+  .sd-trend-card {
+    background: $paper;
+    border-radius: 8px;
+    padding: 36px 28px;
+    border: 1px solid $line;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      border-color: $red;
+      box-shadow: 0 8px 32px rgba(229,57,53,0.08);
+    }
+
+    &__num {
+      font-size: 40px;
+      font-weight: 900;
+      color: rgba(229,57,53,0.12);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    &__year {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: $red;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    &__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: $asphalt;
+      margin: 0 0 12px;
+      line-height: 1.3;
+    }
+
+    &__desc {
+      font-size: 14px;
+      color: $concrete;
+      line-height: 1.7;
+      margin: 0;
+    }
+  }
+
+  // ── WHY US ─────────────────────────────────────────
+  .sd-why {
+    padding: 100px 0;
+    background: $paper;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    &__left {
+      h2 {
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $asphalt;
+        margin: 0 0 16px;
+        line-height: 1.1;
+      }
+      p {
+        font-size: 15px;
+        color: $concrete;
+        line-height: 1.7;
+        margin: 0;
+      }
+    }
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px 0;
+        border-bottom: 1px solid $line;
+        font-size: 15px;
+        color: #222;
+        line-height: 1.5;
+        &:first-child { border-top: 1px solid $line; }
+      }
+    }
+
+    &__num {
+      font-size: 13px;
+      font-weight: 700;
+      color: $red;
+      min-width: 28px;
+      padding-top: 2px;
+    }
+  }
+
+  // ── CTA ────────────────────────────────────────────
+  .sd-cta {
+    padding: 100px 0;
+    background: $asphalt;
+
+    &__box {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #fff;
+        margin: 0 0 16px;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 16px;
+        color: rgba(255,255,255,0.6);
+        line-height: 1.65;
+        margin: 0 0 36px;
+      }
+    }
+  }
+
+  // ── BUTTONS ────────────────────────────────────────
+  .sd-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s, transform 0.15s;
+
+    &:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    &--primary {
+      background: $red;
+      color: #fff;
+    }
+
+    &--large {
+      padding: 18px 48px;
+      font-size: 14px;
+    }
+  }
+
+  // ── NOT FOUND ──────────────────────────────────────
+  .sd-notfound {
+    text-align: center;
+    padding: 120px 24px;
+    color: #999;
+    font-size: 16px;
+
+    button {
+      display: block;
+      margin: 16px auto 0;
+      background: none;
+      border: none;
+      color: $red;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}

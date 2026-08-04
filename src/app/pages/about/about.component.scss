@@ -1,0 +1,359 @@
+// =====================================================
+// Styles trang Giới thiệu — NF OOH
+// Bọc trong app-about để tránh leak ra global
+// =====================================================
+
+app-about {
+
+  // ===== Layout wrapper =====
+  .wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
+  }
+
+  // ===== Eyebrow label =====
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+  }
+
+  // ===== Buttons =====
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+  }
+
+  // ===== Hero =====
+  .pg-hero {
+    position: relative;
+    padding: 180px 0 90px;
+    background: var(--asphalt);
+    color: var(--paper);
+    background-image:
+      linear-gradient(180deg, rgba(18, 19, 22, 0.55), rgba(18, 19, 22, 0.88)),
+      url('/assets/images/gioi-thieu.jpg');
+    background-size: cover;
+    background-position: center;
+
+    .eyebrow { color: var(--red); }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      text-transform: uppercase;
+      margin: 16px 0 18px;
+    }
+
+    p {
+      max-width: 560px;
+      color: #c6c7cc;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+  }
+
+  // ===== Story =====
+  .story {
+    padding: 100px 0;
+    background: var(--paper);
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.4vw, 42px);
+      text-transform: uppercase;
+      margin: 14px 0 20px;
+    }
+
+    p {
+      color: var(--concrete);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+  .story-photo {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -16px rgba(18, 19, 22, 0.35);
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+  }
+
+  // ===== Stripe =====
+  .stripe {
+    height: 2px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #f5c800,
+      #f5c800 10px,
+      #1a1a1a 10px,
+      #1a1a1a 20px
+    );
+  }
+
+  // ===== Process =====
+  .process {
+    padding: 0 0 100px;
+    background: var(--paper);
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      margin-top: 90px;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      h2 {
+        font-size: clamp(34px, 4vw, 52px);
+        text-transform: uppercase;
+        margin-top: 14px;
+      }
+
+      p {
+        color: var(--concrete);
+        max-width: 360px;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .process-step {
+      padding: 30px 24px;
+      border: 1px solid var(--line-dark);
+      border-radius: 4px;
+      min-width: 0;
+
+      .num {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 34px;
+        color: var(--red);
+        margin-bottom: 14px;
+      }
+
+      h3 {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 17px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      p {
+        color: var(--concrete);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  }
+
+  // ===== Coverage =====
+  .coverage-full {
+    padding: 100px 0;
+    background: var(--asphalt);
+    color: var(--paper);
+
+    // eyebrow màu amber cho section tối
+    .eyebrow { color: var(--amber); }
+
+    h2 {
+      font-size: clamp(28px, 3.4vw, 42px);
+      text-transform: uppercase;
+      margin: 14px 0 40px;
+    }
+
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .region-card {
+      background: var(--steel);
+      border-radius: 4px;
+      padding: 26px 24px;
+      min-width: 0;
+
+      h4 {
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 14px;
+
+        // h4 không có ::before line
+        &::before { display: none; }
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        font-size: 13px;
+        color: #c6c7cc;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 6px 12px;
+        border-radius: 100px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .region-grid { grid-template-columns: 1fr; }
+    }
+  }
+
+  // ===== Stats =====
+  .pg-stats {
+    padding: 90px 0;
+    background: var(--paper);
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      h2 {
+        font-size: clamp(28px, 3.4vw, 42px);
+        text-transform: uppercase;
+        margin-top: 14px;
+      }
+    }
+
+    .route {
+      border-top: 1px solid var(--line-dark);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .route-stop {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line-dark);
+
+      .stop-code {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--red);
+        font-weight: 700;
+      }
+
+      .stop-name {
+        font-size: 16px;
+        font-weight: 600;
+
+        small {
+          display: block;
+          font-weight: 400;
+          color: var(--concrete);
+          font-size: 13.5px;
+          margin-top: 3px;
+        }
+      }
+
+      .stop-num {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 40px;
+        color: var(--asphalt);
+
+        span { color: var(--red); }
+      }
+    }
+  }
+
+} // end app-about

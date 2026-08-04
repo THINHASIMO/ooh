@@ -1,0 +1,110 @@
+<!-- ===== Hero Section ===== -->
+<section class="pg-hero">
+  <div class="wrap">
+    <div class="eyebrow">Giới thiệu</div>
+    <h1>Về NF OOH</h1>
+    <p>
+      20 năm đứng giữa phố — từ một xưởng in bạt nhỏ, NF OOH trở thành agency
+      vận hành quảng cáo ngoài trời phủ khắp các tuyến đường, bến xe và trung
+      tâm thương mại lớn trên cả nước.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Story Section ===== -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-photo">
+      <img
+        src="assets/images/banner.jpg"
+        alt="NF OOH trong quá trình thi công"
+      />
+    </div>
+    <div>
+      <div class="eyebrow">Câu chuyện của chúng tôi</div>
+      <h2>Bắt đầu từ một xưởng in bạt nhỏ</h2>
+      <p>
+        NF OOH được thành lập từ một xưởng in bạt quy mô nhỏ, phục vụ các cửa
+        hàng và doanh nghiệp địa phương. Qua nhiều năm, chúng tôi mở rộng dần
+        sang thi công billboard, quản lý vị trí quảng cáo và cuối cùng là vận
+        hành cả một mạng lưới OOH trải dài từ Bắc vào Nam.
+      </p>
+      <p>
+        Điều không đổi trong suốt quá trình đó là cách chúng tôi làm việc: tự
+        tay kiểm soát toàn bộ chuỗi giá trị — từ khảo sát, chọn vị trí, thiết
+        kế, thi công đến đo lường hiệu quả sau chiến dịch. Không thuê ngoài từng
+        khâu rời rạc, để mỗi chiến dịch của khách hàng đều có thể theo dõi bằng
+        số liệu thực tế, không chỉ cảm tính.
+      </p>
+      <p>
+        Ngày nay, đội ngũ hơn 85 nhân sự vận hành và thi công của NF OOH đang
+        quản lý hơn 860 điểm quảng cáo, đồng hành cùng hơn 120 thương hiệu trên
+        khắp cả nước.
+      </p>
+      <a href="#contact" class="btn btn-primary">Liên hệ hợp tác</a>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ===== Process Section ===== -->
+<section class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Cách chúng tôi làm việc</div>
+        <h2>Quy trình 4 bước</h2>
+      </div>
+      <p>
+        Một quy trình khép kín, để mỗi chiến dịch đều nhất quán từ ý tưởng đến
+        điểm chạm thật ngoài phố.
+      </p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step" *ngFor="let step of processSteps">
+        <div class="num">{{ step.num }}</div>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Coverage Section ===== -->
+<section class="coverage-full">
+  <div class="wrap">
+    <div class="eyebrow">Phạm vi hoạt động</div>
+    <h2>Địa bàn hoạt động trên cả nước</h2>
+    <div class="region-grid">
+      <div class="region-card" *ngFor="let region of regions">
+        <h4>{{ region.label }}</h4>
+        <ul>
+          <li *ngFor="let city of region.cities">{{ city }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stats Section ===== -->
+<section class="pg-stats">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Con số biết nói</div>
+        <h2>NF OOH hôm nay</h2>
+      </div>
+    </div>
+    <div class="route">
+      <div class="route-stop" *ngFor="let stat of stats">
+        <div class="stop-code">{{ stat.code }}</div>
+        <div class="stop-name">
+          {{ stat.name }}
+          <small>{{ stat.sub }}</small>
+        </div>
+        <div class="stop-num">{{ stat.value }}<span>+</span></div>
+      </div>
+    </div>
+  </div>
+</section>
