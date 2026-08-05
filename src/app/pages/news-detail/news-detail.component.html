@@ -1,0 +1,79 @@
+<div class="nd-page" *ngIf="post; else notFound">
+
+  <div class="nd-hero" [style.background-image]="'url(' + post.image + ')'">
+    <div class="nd-wrap">
+      <div class="nd-eyebrow">{{ post.tag }}</div>
+      <h1>{{ post.title }}</h1>
+      <div class="nd-meta">
+        <span class="nd-date">{{ post.date }}</span>
+        <button class="nd-back-btn" (click)="goBack()">← Quay lại tin tức</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="nd-body">
+    <div class="nd-wrap nd-layout">
+
+      <article class="nd-article">
+        <p class="nd-lead">{{ post.desc }}</p>
+
+        <h2>Tổng quan</h2>
+        <p>Trong bối cảnh thị trường quảng cáo ngoài trời Việt Nam đang phát triển mạnh mẽ, việc nắm bắt xu hướng và áp dụng công nghệ mới là yếu tố then chốt để các thương hiệu duy trì lợi thế cạnh tranh. Bài viết này phân tích sâu về chủ đề <strong>{{ post.title }}</strong> và những tác động thực tế đến chiến lược OOH của doanh nghiệp.</p>
+
+        <h2>Vì sao điều này quan trọng?</h2>
+        <p>Quảng cáo ngoài trời không còn là kênh đơn chiều. Sự tích hợp giữa dữ liệu số và không gian vật lý đang tạo ra một thế hệ OOH hoàn toàn mới — có thể đo lường, cá nhân hóa và tối ưu theo thời gian thực.</p>
+        <p>Các thương hiệu tiên phong tại Việt Nam đã bắt đầu áp dụng những phương pháp này và ghi nhận mức tăng hiệu quả chiến dịch từ 30–60% so với cách tiếp cận truyền thống.</p>
+
+        <h2>Ứng dụng thực tế</h2>
+        <p>Để triển khai hiệu quả, doanh nghiệp cần xem xét ba yếu tố cốt lõi:</p>
+        <ul>
+          <li><strong>Vị trí chiến lược</strong> — Không phải cứ đông người là hiệu quả. Góc nhìn, thời gian dừng và demographic khu vực mới là các chỉ số quyết định.</li>
+          <li><strong>Nội dung tối ưu cho định dạng</strong> — Biển OOH cần thông điệp có thể tiếp nhận trong 3–5 giây. Thiết kế tốt làm được điều đó mà không cần nhiều chữ.</li>
+          <li><strong>Đo lường và tối ưu liên tục</strong> — Sử dụng dữ liệu lưu lượng, camera AI hoặc mobile data để liên tục cải thiện hiệu quả sau khi triển khai.</li>
+        </ul>
+
+        <h2>Kết luận</h2>
+        <p>OOH đang bước vào giai đoạn phát triển mới — thông minh hơn, có thể đo lường hơn và tích hợp sâu hơn với hành trình khách hàng. Doanh nghiệp nào nắm bắt được xu hướng này sớm sẽ có lợi thế đáng kể trong giai đoạn 2025–2026.</p>
+
+        <div class="nd-cta-box">
+          <h3>Muốn tư vấn chiến lược OOH cho thương hiệu của bạn?</h3>
+          <p>Đội ngũ NF OOH sẽ liên hệ trong vòng 24 giờ làm việc.</p>
+          <a href="#contact" class="nd-btn">Nhận tư vấn miễn phí</a>
+        </div>
+      </article>
+
+      <aside class="nd-sidebar">
+        <div class="nd-sidebar-box">
+          <h4>Bài viết liên quan</h4>
+          <div class="nd-related" *ngFor="let r of related" (click)="goToPost(r.slug)">
+            <div class="nd-related-img">
+              <img [src]="r.image" [alt]="r.title" (error)="imgError($event)" loading="lazy">
+            </div>
+            <div class="nd-related-body">
+              <span class="nd-related-tag">{{ r.tag }}</span>
+              <p class="nd-related-title">{{ r.title }}</p>
+              <span class="nd-related-date">{{ r.date }}</span>
+            </div>
+          </div>
+          <p class="nd-no-related" *ngIf="!related.length">Chưa có bài liên quan.</p>
+        </div>
+
+        <div class="nd-sidebar-box nd-sidebar-nl">
+          <h4>Nhận bản tin OOH</h4>
+          <p>Xu hướng và case study hàng tuần.</p>
+          <input type="email" placeholder="Email của bạn" class="nd-nl-input">
+          <button class="nd-nl-btn">Đăng ký</button>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</div>
+
+<ng-template #notFound>
+  <div class="nd-notfound">
+    <p>Không tìm thấy bài viết.</p>
+    <button (click)="goBack()">← Quay lại tin tức</button>
+  </div>
+</ng-template>

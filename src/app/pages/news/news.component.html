@@ -1,0 +1,124 @@
+<div class="news-page">
+
+  <!-- ── HERO ── -->
+  <section class="news-hero">
+    <div class="news-wrap">
+      <div class="eyebrow">Tin tức & sự kiện</div>
+      <h1>Chuyện trên phố</h1>
+      <p>Ghi chép về các chiến dịch, xu hướng OOH và những gì đang diễn ra trên các tuyến phố mà NF OOH quản lý.</p>
+      <div class="news-tabs">
+        <button
+          class="news-tab"
+          *ngFor="let tag of tags"
+          [class.active]="activeTag === tag"
+          (click)="setTag(tag)"
+        >{{ tag }}</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="news-wrap news-body">
+
+    <!-- ── FEATURED ── -->
+    <div class="news-section-label">Bài nổi bật</div>
+    <div class="news-featured" *ngIf="featuredPost">
+      <div class="news-feat-main" (click)="goToPost(featuredPost.slug)">
+        <div class="news-feat-img">
+          <img [src]="featuredPost.image" [alt]="featuredPost.title" (error)="imgError($event)" loading="lazy">
+          <span class="news-date-badge">{{ featuredPost.date }}</span>
+        </div>
+        <div class="news-feat-body">
+          <div class="news-tag">{{ featuredPost.tag }}</div>
+          <h2 class="news-feat-title">{{ featuredPost.title }}</h2>
+          <p class="news-feat-desc">{{ featuredPost.desc }}</p>
+          <span class="news-read-more">Đọc thêm →</span>
+        </div>
+      </div>
+      <div class="news-feat-side">
+        <div
+          class="news-feat-side-card"
+          *ngFor="let post of featuredSide"
+          (click)="goToPost(post.slug)"
+        >
+          <div class="news-feat-side-img">
+            <img [src]="post.image" [alt]="post.title" (error)="imgError($event)" loading="lazy">
+            <span class="news-date-badge news-date-badge--sm">{{ post.date }}</span>
+          </div>
+          <div class="news-feat-side-body">
+            <div class="news-tag">{{ post.tag }}</div>
+            <h3 class="news-feat-side-title">{{ post.title }}</h3>
+            <span class="news-read-more">Đọc thêm →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GRID 3 CỘT ── -->
+    <div class="news-section-label" *ngIf="gridPosts.length">Mới nhất</div>
+    <div class="news-grid" *ngIf="gridPosts.length">
+      <div
+        class="news-card"
+        *ngFor="let post of gridPosts"
+        (click)="goToPost(post.slug)"
+      >
+        <div class="news-card-img">
+          <img [src]="post.image" [alt]="post.title" (error)="imgError($event)" loading="lazy">
+          <span class="news-date-badge news-date-badge--sm">{{ post.date }}</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-tag">{{ post.tag }}</div>
+          <h3 class="news-card-title">{{ post.title }}</h3>
+          <p class="news-card-desc">{{ post.desc }}</p>
+          <span class="news-read-more">Đọc thêm →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LIST ── -->
+    <div class="news-section-label" *ngIf="listPosts.length">Đọc thêm</div>
+    <div class="news-list" *ngIf="listPosts.length">
+      <div
+        class="news-list-item"
+        *ngFor="let post of listPosts"
+        (click)="goToPost(post.slug)"
+      >
+        <div class="news-list-img">
+          <img [src]="post.image" [alt]="post.title" (error)="imgError($event)" loading="lazy">
+        </div>
+        <div class="news-list-body">
+          <div class="news-list-meta">
+            <span class="news-tag">{{ post.tag }}</span>
+            <span class="news-list-date">{{ post.date }}</span>
+          </div>
+          <h3 class="news-list-title">{{ post.title }}</h3>
+          <p class="news-list-desc">{{ post.desc }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PAGINATION ── -->
+    <div class="news-pagination" *ngIf="totalPages > 1">
+      <button class="news-page-btn" (click)="setPage(currentPage - 1)" [disabled]="currentPage === 1">←</button>
+      <button
+        class="news-page-btn"
+        *ngFor="let p of pages"
+        [class.active]="currentPage === p"
+        (click)="setPage(p)"
+      >{{ p }}</button>
+      <button class="news-page-btn" (click)="setPage(currentPage + 1)" [disabled]="currentPage === totalPages">→</button>
+    </div>
+
+    <!-- ── NEWSLETTER ── -->
+    <div class="news-newsletter">
+      <div class="news-nl-text">
+        <h3>Nhận bản tin OOH hàng tuần</h3>
+        <p>Xu hướng, case study và tips thực chiến — thẳng vào hộp thư của bạn.</p>
+      </div>
+      <div class="news-nl-form">
+        <input type="email" [(ngModel)]="email" placeholder="email@company.com" class="news-nl-input">
+        <button class="news-nl-btn">Đăng ký</button>
+      </div>
+    </div>
+
+  </div>
+</div>

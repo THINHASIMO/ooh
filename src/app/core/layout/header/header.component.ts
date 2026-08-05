@@ -19,11 +19,11 @@ export class HeaderComponent {
   isMenuOpen = false;
 
   navItems: NavItem[] = [
-    { label: 'Trang chủ', href: '#top' },
+    { label: 'Trang chủ', href: '#trang-chu' },
     { label: 'Giới thiệu', href: '/gioi-thieu' },
     { label: 'Dịch vụ', href: '/dich-vu' },
-    { label: 'Khách hàng', href: '#clients' },
-    { label: 'Tin tức', href: '#news' },
+    { label: 'Khách hàng', href: '#khach-hang' },
+    { label: 'Tin tức', href: '/tin-tuc' },
   ];
 
   @HostListener('window:scroll')

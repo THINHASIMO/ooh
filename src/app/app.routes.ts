@@ -6,7 +6,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/home/home.component')
         .then(m => m.HomeComponent),
-    title: 'NF OOH | Quảng cáo ngoài trời'
+    title: 'NF OOH | Quảng cáo ngoài trời | Quảng cáo OOH chuyên nghiệp'
   },
   {
     path: 'gioi-thieu',
@@ -28,5 +28,18 @@ export const routes: Routes = [
       import('./pages/service-detail/service-detail.component')
         .then(m => m.ServiceDetailComponent),
     title: 'Chi tiết dịch vụ | NF OOH'
-  }
+  },{
+  path: 'tin-tuc',
+  loadComponent: () =>
+    import('./pages/news/news.component')
+      .then(m => m.NewsComponent),
+  title: 'Tin tức | NF OOH'
+},
+{
+  path: 'tin-tuc/:slug',
+  loadComponent: () =>
+    import('./pages/news-detail/news-detail.component')
+      .then(m => m.NewsDetailComponent),
+  title: 'Bài viết | NF OOH'
+}
 ];

@@ -46,7 +46,7 @@ interface NewsPost {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgFor, NgIf, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -126,24 +126,24 @@ serviceCards: ServiceCard[] = [
   aboutPhoto = 'assets/images/banner.jpg';
 
   serviceCategories: ServiceCategory[] = [
-    { label: 'Pano', image: 'assets/images/svc/pano.jpg', hasImage: true },
-    { label: 'Billboard', image: 'assets/images/svc/billboard.jpg', hasImage: true },
-    { label: 'Quảng cáo xe buýt', image: 'assets/images/svc/bus-ads.jpg', hasImage: true },
-    { label: 'Quảng cáo taxi', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Quảng cáo ô tô', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Nhà chờ xe buýt', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Màn hình LED ngoài trời', image: 'assets/images/svc/led.jpg', hasImage: true },
-    { label: 'LCD / Màn hình khung', image: 'assets/images/svc/lcd.jpg', hasImage: true },
-    { label: 'Hộp đèn (Lightbox)', image: 'assets/images/svc/lightbox.jpg', hasImage: true },
-    { label: 'Banner', image: 'assets/images/svc/banner.jpg', hasImage: true },
-    { label: 'Roadshow', image: 'assets/images/svc/roadshow.jpg', hasImage: true },
-    { label: 'Human Billboard', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Roadshow cao cấp', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Quảng cáo sân Golf', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Quảng cáo sân bay', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Quảng cáo siêu thị', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Quảng cáo bệnh viện', image: 'assets/images/svc/placeholder.svg', hasImage: false },
-    { label: 'Sự kiện / Kích hoạt', image: 'assets/images/svc/activation.jpg', hasImage: true },
+    { label: 'Pano', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Billboard', image: 'assets/images/slider-2.png', hasImage: true },
+    { label: 'Quảng cáo xe buýt', image: 'assets/images/slider-3.png', hasImage: true },
+    { label: 'Quảng cáo taxi', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Quảng cáo ô tô', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Nhà chờ xe buýt', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Màn hình LED ngoài trời', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'LCD / Màn hình khung', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Hộp đèn (Lightbox)', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Banner', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Roadshow', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Human Billboard', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Roadshow cao cấp', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Quảng cáo sân Golf', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Quảng cáo sân bay', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Quảng cáo siêu thị', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Quảng cáo bệnh viện', image: 'assets/images/slider-1.png', hasImage: true },
+    { label: 'Sự kiện / Kích hoạt', image: 'assets/images/slider-1.png', hasImage: true },
   ];
   // logo dùng trong phần header/footer nếu cần tái sử dụng ở HomeComponent
   logoHeader = 'assets/images/logo-header.png';

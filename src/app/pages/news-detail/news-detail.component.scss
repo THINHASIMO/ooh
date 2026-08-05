@@ -1,0 +1,319 @@
+app-news-detail {
+
+  $red: #E53935;
+  $asphalt: #12131a;
+  $line: #e8e8e8;
+  $concrete: #555;
+
+  .nd-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    @media (max-width: 768px) { padding: 0 20px; }
+  }
+
+  .nd-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $red;
+    margin-bottom: 14px;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: $red;
+    }
+  }
+
+  // ── HERO ───────────────────────────────────────────
+  .nd-hero {
+    padding: 160px 0 80px;
+    background-color: $asphalt;
+    background-image:
+      linear-gradient(180deg, rgba(18,19,22,0.6), rgba(18,19,22,0.94)),
+      var(--hero-bg, none);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+
+    h1 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 20px;
+      max-width: 760px;
+    }
+  }
+
+  .nd-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .nd-date {
+    background: $red;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  .nd-back-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    &:hover { color: #fff; }
+  }
+
+  // ── BODY ───────────────────────────────────────────
+  .nd-body { padding: 64px 0 100px; background: #fff; }
+
+  .nd-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px;
+    align-items: start;
+    @media (max-width: 900px) { grid-template-columns: 1fr; }
+  }
+
+  // ── ARTICLE ────────────────────────────────────────
+  .nd-article {
+    .nd-lead {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid $line;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+      text-transform: uppercase;
+      margin: 36px 0 14px;
+      padding-left: 14px;
+      border-left: 3px solid $red;
+    }
+
+    p {
+      font-size: 15px;
+      color: $concrete;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li {
+        font-size: 15px;
+        color: $concrete;
+        line-height: 1.7;
+        padding-left: 20px;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 9px;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: $red;
+        }
+
+        strong { color: #111; }
+      }
+    }
+  }
+
+  .nd-cta-box {
+    background: $asphalt;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-top: 48px;
+    color: #fff;
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+  }
+
+  .nd-btn {
+    display: inline-block;
+    background: $red;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    &:hover { opacity: 0.88; }
+  }
+
+  // ── SIDEBAR ────────────────────────────────────────
+  .nd-sidebar { position: sticky; top: 100px; }
+
+  .nd-sidebar-box {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+
+    h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #111;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid $line;
+    }
+  }
+
+  .nd-related {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 0.5px solid $line;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    &:last-of-type { border-bottom: none; }
+    &:hover { opacity: 0.75; }
+
+    .nd-related-img {
+      height: 52px;
+      border-radius: 5px;
+      overflow: hidden;
+      background: $asphalt;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .nd-related-body {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+  }
+
+  .nd-related-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $red;
+  }
+
+  .nd-related-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #111;
+    line-height: 1.4;
+  }
+
+  .nd-related-date {
+    font-size: 10px;
+    color: #aaa;
+  }
+
+  .nd-no-related {
+    font-size: 13px;
+    color: #aaa;
+    text-align: center;
+    padding: 16px 0;
+  }
+
+  .nd-sidebar-nl {
+    p { font-size: 13px; color: $concrete; margin-bottom: 12px; }
+  }
+
+  .nd-nl-input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid $line;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    margin-bottom: 8px;
+    outline: none;
+    box-sizing: border-box;
+    &:focus { border-color: $red; }
+  }
+
+  .nd-nl-btn {
+    width: 100%;
+    background: $red;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    &:hover { opacity: 0.88; }
+  }
+
+  // ── NOT FOUND ──────────────────────────────────────
+  .nd-notfound {
+    text-align: center;
+    padding: 120px 24px;
+    color: #999;
+
+    button {
+      display: block;
+      margin: 16px auto 0;
+      background: none;
+      border: none;
+      color: $red;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
