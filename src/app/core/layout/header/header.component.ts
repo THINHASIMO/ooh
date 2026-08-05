@@ -14,7 +14,7 @@ interface NavItem {
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  logo = '/assets/images/logo-header.png';
+  logo = 'assets/images/logo-header.png';
   isSolid = false;
   isMenuOpen = false;
 
