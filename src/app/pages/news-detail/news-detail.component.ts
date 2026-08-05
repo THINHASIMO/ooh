@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor, CommonModule } from '@angular/common';
 import { NEWS_POSTS, NewsPost } from '../news/news.component';
 
 @Component({
   selector: 'app-news-detail',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [CommonModule],
   templateUrl: './news-detail.component.html',
   styleUrl: './news-detail.component.scss',
   encapsulation: ViewEncapsulation.None,

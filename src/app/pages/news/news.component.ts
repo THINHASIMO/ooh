@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NgFor, NgIf, NgClass } from '@angular/common';
+import { NgFor, NgIf, NgClass, CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 export interface NewsPost {
   slug: string;
@@ -100,7 +101,7 @@ const PAGE_SIZE = 6;
 @Component({
   selector: 'app-news',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass],
+  imports: [FormsModule, CommonModule],
   templateUrl: './news.component.html',
   styleUrl: './news.component.scss',
   encapsulation: ViewEncapsulation.None,

@@ -28,18 +28,23 @@ export const routes: Routes = [
       import('./pages/service-detail/service-detail.component')
         .then(m => m.ServiceDetailComponent),
     title: 'Chi tiết dịch vụ | NF OOH'
-  },{
-  path: 'tin-tuc',
-  loadComponent: () =>
-    import('./pages/news/news.component')
-      .then(m => m.NewsComponent),
-  title: 'Tin tức | NF OOH'
-},
-{
-  path: 'tin-tuc/:slug',
-  loadComponent: () =>
-    import('./pages/news-detail/news-detail.component')
-      .then(m => m.NewsDetailComponent),
-  title: 'Bài viết | NF OOH'
-}
+  },
+  {
+    path: 'tin-tuc',
+    loadComponent: () =>
+      import('./pages/news/news.component')
+        .then(m => m.NewsComponent),
+    title: 'Tin tức | NF OOH'
+  },
+  {
+    path: 'tin-tuc/:slug',
+    loadComponent: () =>
+      import('./pages/news-detail/news-detail.component')
+        .then(m => m.NewsDetailComponent),
+    title: 'Bài viết | NF OOH'
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
