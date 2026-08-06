@@ -5,8 +5,7 @@ import {
 } from '@angular/core';
 
 import {
-  provideRouter,
-  withHashLocation
+  provideRouter
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -21,10 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
 
-    provideRouter(
-      routes,
-      withHashLocation()
-    ),
+    provideRouter(routes),
 
     provideClientHydration(
       withEventReplay()

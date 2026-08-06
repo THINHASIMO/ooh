@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface NavItem {
   label: string;
   href: string;
+  isAnchor?: boolean;
 }
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -19,11 +21,11 @@ export class HeaderComponent {
   isMenuOpen = false;
 
   navItems: NavItem[] = [
-    { label: 'Trang chủ', href: '#trang-chu' },
-    { label: 'Giới thiệu', href: '/gioi-thieu' },
-    { label: 'Dịch vụ', href: '/dich-vu' },
-    { label: 'Khách hàng', href: '#khach-hang' },
-    { label: 'Tin tức', href: '/tin-tuc' },
+    { label: 'Trang chủ', href: '/', isAnchor: false },
+    { label: 'Giới thiệu', href: '/gioi-thieu', isAnchor: false },
+    { label: 'Dịch vụ', href: '/dich-vu', isAnchor: false },
+    { label: 'Khách hàng', href: '#khach-hang', isAnchor: true },
+    { label: 'Tin tức', href: '/tin-tuc', isAnchor: false },
   ];
 
   @HostListener('window:scroll')
