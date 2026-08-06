@@ -58,7 +58,8 @@
       </div>
 
       <div class="hero-actions">
-        <a href="/gioi-thieu" class="btn btn-primary">Xem đầy đủ về NF OOH</a>
+        <!-- [routerLink]="item.href" -->
+      <a [routerLink]="['/gioi-thieu']" class="btn btn-primary">Xem đầy đủ về NF OOH</a>
         <a href="#contact" class="btn btn-outline">Tìm hiểu quy trình</a>
       </div>
     </div>
@@ -95,7 +96,7 @@
         *ngFor="let card of serviceCards"
   
       >
-        <div class="frame"       (click)="goToDetail(card.slug)">
+       <div class="frame" [routerLink]="['/dich-vu', card.slug]">
           <span class="tab">{{ card.tab }}</span>
           <img [src]="card.image" [alt]="card.alt" loading="lazy">
         </div>
