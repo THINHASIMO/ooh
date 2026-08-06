@@ -1,3 +1,7 @@
-<app-header></app-header>
+<div class="page-overlay" [class.active]="isLoading">
+  <div class="spinner"></div>
+</div>
+
+<app-header />
 <router-outlet />
-<app-footer></app-footer>
+<app-footer />
