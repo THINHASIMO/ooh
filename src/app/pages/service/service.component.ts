@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { FadeInDirective } from '../../shared/directives/content.directive';
 
 interface ServiceCard {
   tab: string;
@@ -13,7 +14,7 @@ interface ServiceCard {
 @Component({
   selector: 'app-service',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,FadeInDirective],
   templateUrl: './service.component.html',
   styleUrl: './service.component.scss',
   encapsulation: ViewEncapsulation.None,
