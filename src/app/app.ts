@@ -24,6 +24,25 @@ export class App implements AfterViewInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
+  ngOnInit(): void {
+  this.router.events.subscribe(event => {
+    if (event instanceof NavigationStart) {
+      this.isLoading = true;
+    } else if (
+      event instanceof NavigationEnd ||
+      event instanceof NavigationCancel ||
+      event instanceof NavigationError
+    ) {
+      setTimeout(() => this.isLoading = false, 400);
+
+      // ← thêm scroll to top
+      if (isPlatformBrowser(this.platformId)) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  });
+}
+
   ngAfterViewInit(): void {
     if (!this.isBrowser) return;
 
