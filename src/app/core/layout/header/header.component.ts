@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface NavItem {
@@ -28,8 +28,11 @@ export class HeaderComponent {
     { label: 'Tin tức', href: '/tin-tuc', isAnchor: false },
   ];
 
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+
   @HostListener('window:scroll')
   onWindowScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.isSolid = window.scrollY > 40;
   }
 

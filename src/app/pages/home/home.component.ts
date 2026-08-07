@@ -1,10 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
   ElementRef,
+  Inject,
   OnDestroy,
+  PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -27,11 +29,7 @@ interface NewsPost { date: string; title: string; excerpt: string; }
 export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('newsRail') newsRailRef?: ElementRef<HTMLDivElement>;
 
-  billboardSlides: string[] = [
-    'VỊ TRÍ ĐẮC ĐỊA',
-    'TIẾP CẬN TRIỆU LƯỢT NHÌN',
-    'THI CÔNG TRỌN GÓI',
-  ];
+  billboardSlides: string[] = ['VỊ TRÍ ĐẮC ĐỊA', 'TIẾP CẬN TRIỆU LƯỢT NHÌN', 'THI CÔNG TRỌN GÓI'];
   activeSlideIndex = 0;
 
   tickerItems: TickerItem[] = [
@@ -101,9 +99,13 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private slideSubscription?: Subscription;
 
-  constructor(private readonly cdr: ChangeDetectorRef) {}
+  constructor(
+    private readonly cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {}
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return; // ← fix SSR
     this.slideSubscription = interval(2000).subscribe(() => {
       this.activeSlideIndex = (this.activeSlideIndex + 1) % this.billboardSlides.length;
       this.cdr.markForCheck();
@@ -120,9 +122,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     rail.scrollBy({ left: direction * (340 + 24), behavior: 'smooth' });
   }
 
-  onNewsletterSubmit(form: NgForm): void {
-    if (form.invalid) return;
+onNewsletterSubmit(form: NgForm): void {
+  if (form.invalid) return;
+  if (isPlatformBrowser(this.platformId)) {
     alert('Đăng ký thành công!');
-    form.resetForm();
   }
+  form.resetForm();
+}
 }

@@ -190,10 +190,12 @@ export class ServiceDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit() {
-    const slug = this.route.snapshot.paramMap.get('slug') ?? '';
-    this.data = SERVICES[slug] ?? null;
-  }
+ngOnInit() {
+  const slug = this.route.snapshot.paramMap.get('slug') ?? '';
+  if (!slug) { this.router.navigate(['/dich-vu']); return; }
+  this.data = SERVICES[slug] ?? null;
+  if (!this.data) { this.router.navigate(['/dich-vu']); return; }
+}
 
   goBack() {
     this.router.navigate(['/dich-vu']);
