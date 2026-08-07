@@ -1,20 +1,20 @@
 <section class="pg-hero">
   <div class="wrap">
-    <div class="eyebrow">Giới thiệu</div>
-    <h1>Về NF OOH</h1>
-    <p>NF – Kết nối thương hiệu với không gian truyền thông ngoài trời, kiến tạo những chiến dịch nổi bật và có giá trị bền vững.</p>
+    <div class="eyebrow" fadeIn>Giới thiệu</div>
+    <h1 fadeIn [fadeDelay]="100">Về NF OOH</h1>
+    <p fadeIn [fadeDelay]="200">NF – Kết nối thương hiệu với không gian truyền thông ngoài trời, kiến tạo những chiến dịch nổi bật và có giá trị bền vững.</p>
   </div>
 </section>
 
 <section class="story" id="story">
   <div class="wrap">
-    <div class="story-photo">
-      <img src="assets/images/banner.jpg" alt="NF OOH trong quá trình thi công">
+    <div class="story-photo" fadeIn fadeDirection="left">
+      <img src="assets/images/banner.jpg" alt="NF OOH">
     </div>
-    <div class="eyebrow">Câu chuyện của NF</div>
-    <h2>Từ nền tảng thực tiễn đến hệ sinh thái quảng cáo ngoài trời</h2>
-    <p *ngFor="let p of storyParagraphs">{{ p }}</p>
-    <a href="#contact" class="btn btn-primary">Liên hệ hợp tác</a>
+    <div class="eyebrow" fadeIn>Câu chuyện của NF</div>
+    <h2 fadeIn [fadeDelay]="100">Từ nền tảng thực tiễn đến hệ sinh thái quảng cáo ngoài trời</h2>
+    <p *ngFor="let p of storyParagraphs; let i = index" fadeIn [fadeDelay]="i * 80">{{ p }}</p>
+    <a href="#contact" class="btn btn-primary" fadeIn [fadeDelay]="400">Liên hệ hợp tác</a>
   </div>
 </section>
 
@@ -22,7 +22,7 @@
 
 <section class="process">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" fadeIn>
       <div>
         <div class="eyebrow">Cách chúng tôi làm việc</div>
         <h2>Quy trình 4 bước</h2>
@@ -30,7 +30,9 @@
       <p>Một quy trình khép kín, để mỗi chiến dịch đều nhất quán từ ý tưởng đến điểm chạm thật ngoài phố.</p>
     </div>
     <div class="process-grid">
-      <div class="process-step" *ngFor="let step of processSteps">
+      <div class="process-step"
+           *ngFor="let step of processSteps; let i = index"
+           fadeIn [fadeDelay]="i * 100" fadeDirection="up">
         <div class="num">{{ step.num }}</div>
         <h3>{{ step.title }}</h3>
         <p>{{ step.desc }}</p>
@@ -41,10 +43,12 @@
 
 <section class="coverage-full">
   <div class="wrap">
-    <div class="eyebrow">Phạm vi hoạt động</div>
-    <h2>Địa bàn hoạt động trên cả nước</h2>
+    <div class="eyebrow" fadeIn>Phạm vi hoạt động</div>
+    <h2 fadeIn [fadeDelay]="100">Địa bàn hoạt động trên cả nước</h2>
     <div class="region-grid">
-      <div class="region-card" *ngFor="let region of regions">
+      <div class="region-card"
+           *ngFor="let region of regions; let i = index"
+           fadeIn [fadeDelay]="i * 120" fadeDirection="up">
         <h4>{{ region.label }}</h4>
         <ul>
           <li *ngFor="let city of region.cities">{{ city }}</li>
@@ -56,14 +60,16 @@
 
 <section class="pg-stats">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" fadeIn>
       <div>
         <div class="eyebrow">Con số biết nói</div>
         <h2>NF OOH hôm nay</h2>
       </div>
     </div>
     <div class="route">
-      <div class="route-stop" *ngFor="let stat of stats">
+      <div class="route-stop"
+           *ngFor="let stat of stats; let i = index"
+           fadeIn [fadeDelay]="i * 100" fadeDirection="up">
         <div class="stop-code">{{ stat.code }}</div>
         <div class="stop-name">
           {{ stat.name }}

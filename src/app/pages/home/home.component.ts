@@ -12,6 +12,7 @@ import {
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
+import { FadeInDirective } from '../../shared/directives/content.directive';
 
 interface TickerItem { number: string; label: string; }
 interface RouteStop { code: string; title: string; desc: string; value: string; }
@@ -22,7 +23,8 @@ interface NewsPost { date: string; title: string; excerpt: string; }
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  // imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, FadeInDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

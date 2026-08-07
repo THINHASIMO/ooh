@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { FadeInDirective } from '../../shared/directives/content.directive';
 import { SeoService } from '../../shared/services/seo.service';
+import { NgFor } from '@angular/common';
 
 interface ProcessStep { num: string; title: string; desc: string; }
 interface Region { label: string; cities: string[]; }
@@ -8,7 +9,7 @@ interface Stat { code: string; name: string; sub: string; value: string; }
 
 @Component({
   selector: 'app-about',
-  imports: [NgFor],
+  imports: [NgFor, FadeInDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
   encapsulation: ViewEncapsulation.None,
