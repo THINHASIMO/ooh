@@ -47,6 +47,7 @@
 
 .hero-eyebrow {
   font-size: 14px;
+      text-align: justify;
   letter-spacing: 0.12em;
   color: var(--paper);
   background: rgba(255, 59, 48, 0.16);
@@ -185,6 +186,7 @@ h3 {
 .hero-copy {
   h1 {
     font-size: clamp(40px, 5.6vw, 84px);
+        text-align: justify;
     margin: 18px 0 26px;
     text-transform: uppercase;
 
@@ -196,6 +198,7 @@ h3 {
 
   p {
     font-size: 17px;
+        text-align: justify;
     line-height: 1.6;
     color: #c6c7cc;
     max-width: 480px;
@@ -244,6 +247,7 @@ h3 {
   left: 14px;
   font-family: var(--mono);
   font-size: 10px;
+  text-align: justify;
   letter-spacing: 0.1em;
   color: var(--amber);
   border: 1px solid var(--amber);
@@ -383,6 +387,7 @@ h3 {
 /* ===== about / route stats ===== */
 .about {
   padding: 120px 0;
+  
   background: var(--paper);
 }
 
@@ -406,6 +411,7 @@ h3 {
     line-height: 1.75;
     margin-bottom: 18px;
     max-width: 480px;
+    text-align: justify;
   }
 }
 
