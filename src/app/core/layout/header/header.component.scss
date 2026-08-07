@@ -251,7 +251,7 @@ nav a {
 
     &.open {
       display: block;
-
+ z-index: 100; // ← nav menu cao nhất trong header
       position: absolute;
       top: 100%;
       left: 0;
@@ -280,5 +280,21 @@ nav a {
 
   .burger {
     display: flex;
+  }
+}
+
+.nav-overlay {
+  display: none;
+
+  @media (max-width: 996px) {
+    display: block;
+    position: fixed;
+    inset: 0;
+ z-index: 99; // ← dưới nav (100) nhưng trên FAB (500... không cần)
+    pointer-events: none;
+
+    &.active {
+      pointer-events: all;
+    }
   }
 }
