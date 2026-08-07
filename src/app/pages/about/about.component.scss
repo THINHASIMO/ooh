@@ -1,11 +1,9 @@
 // =====================================================
 // Styles trang Giới thiệu — NF OOH
-// Bọc trong app-about để tránh leak ra global
 // =====================================================
 
 app-about {
 
-  // ===== Layout wrapper =====
   .wrap {
     width: 100%;
     max-width: 1200px;
@@ -13,12 +11,9 @@ app-about {
     padding: 0 40px;
     box-sizing: border-box;
 
-    @media (max-width: 768px) {
-      padding: 0 20px;
-    }
+    @media (max-width: 768px) { padding: 0 20px; }
   }
 
-  // ===== Eyebrow label =====
   .eyebrow {
     display: flex;
     align-items: center;
@@ -41,7 +36,6 @@ app-about {
     }
   }
 
-  // ===== Buttons =====
   .btn {
     display: inline-block;
     padding: 14px 28px;
@@ -56,14 +50,8 @@ app-about {
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.15s ease;
 
-    &:hover {
-      opacity: 0.88;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
+    &:hover { opacity: 0.88; transform: translateY(-1px); }
+    &:active { transform: translateY(0); }
   }
 
   .btn-primary {
@@ -99,59 +87,57 @@ app-about {
     }
   }
 
-  // ===== Story =====
-  .story {
-    padding: 100px 0;
-    background: var(--paper);
+  // ===== Story — text wrap quanh ảnh =====
+.story {
+  padding: 100px 0;
+  background: var(--paper);
 
-    .story-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 70px;
-      align-items: start;
-    }
+  h2 {
+    font-size: clamp(28px, 3.4vw, 42px);
+    text-transform: uppercase;
+    margin: 14px 0 24px;
+  }
 
-    h2 {
-      font-size: clamp(28px, 3.4vw, 42px);
-      text-transform: uppercase;
-      margin: 14px 0 20px;
-    }
-
-    p {
-      color: var(--concrete);
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 18px;
-    }
+  p {
+    color: var(--concrete);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    text-align: justify;        // ← thêm
+    hyphens: auto;              // ← thêm
+    word-break: break-word;     // ← thêm
+  }
 
   .story-photo {
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px -16px rgba(18, 19, 22, 0.35);
+    float: left;
+    width: 380px;
+    margin: 6px 48px 24px 0;
+    shape-outside: margin-box;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -16px rgba(18, 19, 22, 0.35);
 
-      img {
-        width: 100%;
-        display: block;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .story-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
+    img {
+      width: 100%;
+      display: block;
     }
   }
 
+  @media (max-width: 900px) {
+    .story-photo {
+      float: none;
+      width: 100%;
+      margin: 0 0 32px 0;
+    }
+  }
+}
   // ===== Stripe =====
   .stripe {
     height: 2px;
     background: repeating-linear-gradient(
       -45deg,
-      #f5c800,
-      #f5c800 10px,
-      #1a1a1a 10px,
-      #1a1a1a 20px
+      #f5c800, #f5c800 10px,
+      #1a1a1a 10px, #1a1a1a 20px
     );
   }
 
@@ -193,7 +179,6 @@ app-about {
       padding: 30px 24px;
       border: 1px solid var(--line-dark);
       border-radius: 4px;
-      min-width: 0;
 
       .num {
         font-family: var(--display);
@@ -219,13 +204,8 @@ app-about {
       }
     }
 
-    @media (max-width: 900px) {
-      .process-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      .process-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .process-grid { grid-template-columns: 1fr; } }
   }
 
   // ===== Coverage =====
@@ -234,7 +214,6 @@ app-about {
     background: var(--asphalt);
     color: var(--paper);
 
-    // eyebrow màu amber cho section tối
     .eyebrow { color: var(--amber); }
 
     h2 {
@@ -253,7 +232,6 @@ app-about {
       background: var(--steel);
       border-radius: 4px;
       padding: 26px 24px;
-      min-width: 0;
 
       h4 {
         font-family: var(--mono);
@@ -263,8 +241,6 @@ app-about {
         text-transform: uppercase;
         color: var(--amber);
         margin-bottom: 14px;
-
-        // h4 không có ::before line
         &::before { display: none; }
       }
 
@@ -286,9 +262,7 @@ app-about {
       }
     }
 
-    @media (max-width: 900px) {
-      .region-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .region-grid { grid-template-columns: 1fr; } }
   }
 
   // ===== Stats =====
